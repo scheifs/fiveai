@@ -1,0 +1,4 @@
+exports.getMove = (game, player) => {
+
+    
+}
