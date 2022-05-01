@@ -1,8 +1,9 @@
 {
-  "name": "fivenodeapi",
-  "version": "1.0.0",
+  "name": "fiveai",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest --coverage"
   },

@@ -1,14 +1,14 @@
-exports.getAllPossibleMoves = (game, playerId) => {
+function getAllPossibleMoves(game, playerId) {
 
     let allPossibleMoves = [];
 
-    let myCards = this.getMyCards(game, playerId);
+    let myCards = getMyCards(game, playerId);
 
     game.board.map(rowOfSquares => {
         rowOfSquares.map(square => {
-            console.log(square);
+            // console.log(square);
             if (!square.color) {
-                const cardToPlay = this.getHighestCardForBoardSpot(myCards, square.num);
+                const cardToPlay = getHighestCardForBoardSpot(myCards, square.num);
                 if (cardToPlay) {
                     allPossibleMoves.push({ card: cardToPlay, boardNumber: square.num})
                 }
@@ -20,12 +20,12 @@ exports.getAllPossibleMoves = (game, playerId) => {
 
 }
 
-exports.getMyCards = (game, playerId) => {
+function getMyCards(game, playerId) {
     
     let myCards;
 
     game.players.map(player => {
-        if (player.userid === playerId) {
+        if (player.playerId === playerId) {
             myCards = player.cards;
         }
     });
@@ -34,7 +34,7 @@ exports.getMyCards = (game, playerId) => {
 
 }
 
-exports.getHighestCardForBoardSpot = (cards, boardNumber) => {
+function getHighestCardForBoardSpot(cards, boardNumber) {
 
     let cardToUse = null;
     
@@ -49,3 +49,5 @@ exports.getHighestCardForBoardSpot = (cards, boardNumber) => {
     return cardToUse;    
     
 }
+
+export { getMyCards, getHighestCardForBoardSpot, getAllPossibleMoves }
